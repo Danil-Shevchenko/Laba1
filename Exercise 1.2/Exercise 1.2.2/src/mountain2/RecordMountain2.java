@@ -11,7 +11,7 @@ public class RecordMountain2{
     public static Gora[]setMountArr(int gor){
         // Введення інформації
         Scanner sc = new Scanner(System.in, "cp1251");
-        Gora mount[]=new Gora[gor];
+        Gora mount[]=new Gora[gor];// кількість гір
         System.out.println("Введіть інформацію про гори => ");
         for (int i=0; i<mount.length; i++){
             mount[i]=new Gora();
@@ -67,14 +67,16 @@ public class RecordMountain2{
                 }
 
     }
+    //Пошук за назвою
     public static Gora findForName(Gora gr[],String name){
-        int nom=-1;
+        int nom=-1;//-1 – гора з шуканою назвою відсутня
         for (int i = 0; i < gr.length; i++)
             if (name.equalsIgnoreCase(gr[i].name)) nom=i;
         if (nom != -1) {
             return gr[nom];
         }else return null;
     }
+    //Редагування
     public static Gora Rename(Gora gr[],String name, String number){
         Scanner sc = new Scanner(System.in, "cp1251");
         int nome= -1; //-1 – гора з шуканою назвою відсутня
@@ -141,6 +143,8 @@ public class RecordMountain2{
         String number=sc.nextLine();
         Gora rename=Rename(mount,rname,number); if (rename != null) {
             showMount(rename);
+        } else{
+            System.out.println("Такої гори немає у списку");
         }
     }
 }
